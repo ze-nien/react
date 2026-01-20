@@ -1,16 +1,17 @@
-import Info from "./info";
-import Nav from "./Nav";
+import { useState, useEffect } from "react";
 
 function App() {
-  let fri = ["a", "b", "C"];
-  let fri1 = "a";
+  let [name, setName] = useState("mike huang");
+  const buttonHandler = () => {
+    setName("mike");
+  };
+
+  useEffect(() => {}, [name]);
+
   return (
     <div>
-      <h1>app.js practice</h1>
-      <Nav />
-      <Info name={fri1} />
-      <Info name={fri[1]} />
-      <Info name="c" />
+      <h1>{name}</h1>
+      <button onClick={buttonHandler}>change</button>
     </div>
   );
 }

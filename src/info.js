@@ -1,11 +1,12 @@
 import React from "react";
 import "./styles/style.css";
 
-function info() {
+function info({ messages, setMessages }) {
   return (
     <div className="info">
-      <h1>info組件</h1>
-      {}
+      {messages.map((m, index) => {
+        return <p key={index}>{m}</p>;
+      })}
     </div>
   );
 }
