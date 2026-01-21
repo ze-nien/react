@@ -1,18 +1,20 @@
-import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Home from "./pages/Home";
+import Page from "./pages/Page";
+import NoPage from "./pages/Nopage";
 
 function App() {
-  let [name, setName] = useState("mike huang");
-  const buttonHandler = () => {
-    setName("mike");
-  };
-
-  useEffect(() => {}, [name]);
-
   return (
-    <div>
-      <h1>{name}</h1>
-      <button onClick={buttonHandler}>change</button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="page" element={<Page />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
