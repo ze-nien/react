@@ -4,12 +4,13 @@ import Search from "../components/search";
 import Picture from "../components/picture";
 
 const Home = () => {
-  const [input, setInput] = useState("");
-  const [currentSearch, setCurrentsearch] = useState("");
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState([]);
+  const [input, setInput] = useState(""); //即時input
+  const [currentSearch, setCurrentsearch] = useState(""); //input&搜尋
+  const [page, setPage] = useState(1); //頁數
+  const [data, setData] = useState([]); //圖片資料
   const auth = "Chz1sHtPgkWs61hLhYtlTJ4edLSTqCZXayQhsoBnHPAq3RzlZ7wEOacF";
 
+  //檢查關鍵字設定fetchURL
   function newURL() {
     let URL;
     if (currentSearch) {
@@ -21,6 +22,7 @@ const Home = () => {
     return URL;
   }
 
+  //搜尋觸發
   const buttonTrigger = () => {
     if (input !== currentSearch) {
       //改變搜尋 重整頁數與更新關鍵字
@@ -32,6 +34,7 @@ const Home = () => {
     }
   };
 
+  //初始化、搜尋或頁數不同時fetch網址並儲存data
   useEffect(() => {
     const fetchPhotos = async () => {
       let result = await axios.get(newURL(), {
@@ -40,7 +43,6 @@ const Home = () => {
       setData(result.data.photos);
     };
     fetchPhotos();
-    console.log(`${input}page${page}`);
   }, [currentSearch, page]);
 
   return (

@@ -1,0 +1,19 @@
+nav {
+  display: flex;
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    li {
+      a {
+        text-decoration: none;
+        color: gray;
+        font-size: 1.2rem;
+        transition: all 0.3s;
+        &:hover {
+          color: blue;
+        }
+      }
+    }
+  }
+}
