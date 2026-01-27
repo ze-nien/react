@@ -1,0 +1,12 @@
+.res {
+  padding: 2px;
+  background-color: darkblue;
+  color: white;
+}
+.res table {
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+.res table td {
+  border: 1px solid black;
+}/*# sourceMappingURL=page.css.map */
